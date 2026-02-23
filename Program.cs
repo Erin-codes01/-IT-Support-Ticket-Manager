@@ -12,7 +12,7 @@ namespace TicketManagerIO
             var manager = new TicketManager();
 
             // Greet the user warmly
-            Console.WriteLine("=== IT Support Ticket Manager ===");
+            Console.WriteLine("=== Welcome To IT Support Ticket Manager ===");
 
             // Encapsulate the UI in a while loop
             bool running = true;
@@ -22,8 +22,8 @@ namespace TicketManagerIO
                 Console.WriteLine("1. Add Ticket");
                 Console.WriteLine("2. Remove Ticket");
                 Console.WriteLine("3. Display All Tickets");
-                Console.WriteLine("4. Close Ticket");
-                Console.WriteLine("5. Reopen Ticket");
+                Console.WriteLine("4. Close A Ticket");
+                Console.WriteLine("5. Reopen A Ticket");
                 Console.WriteLine("6. Save Tickets to File");
                 Console.WriteLine("7. Load Tickets from File");
                 Console.WriteLine("8. Exit");
@@ -71,7 +71,7 @@ namespace TicketManagerIO
                             break;
 
                         default:
-                            Console.WriteLine("Invalid option.");
+                            Console.WriteLine("Invalid option. Please try again!");
                             break;
                     }
                 }
@@ -105,7 +105,7 @@ namespace TicketManagerIO
             // Then use AddTicket from your TicketManager to pass it to the list
             manager.AddTicket(ticket);
 
-            Console.WriteLine("Ticket added.");
+            Console.WriteLine("Ticket added!");
         }
 
         private static void RemoveTicketMenu(TicketManager manager)
@@ -118,8 +118,8 @@ namespace TicketManagerIO
 
             // Update the user if it was removed or not. Ternary operator is your friend.
             Console.WriteLine(removed
-                ? "Ticket removed successfully."
-                : "Ticket not found.");
+                ? "Ticket removed successfully!"
+                : "Sorry the ticket was not found.");
         }
 
         // Create another Private Static Void to Close and Reopen tickets.
@@ -133,19 +133,19 @@ namespace TicketManagerIO
 
             if (ticket == null)
             {
-                Console.WriteLine("Ticket not found.");
+                Console.WriteLine("Sorry the ticket was not found.");
                 return;
             }
 
             if (close)
             {
                 ticket.CloseTicket();
-                Console.WriteLine("Ticket closed.");
+                Console.WriteLine("Ticket was closed.");
             }
             else
             {
                 ticket.ReopenTicket();
-                Console.WriteLine("Ticket reopened.");
+                Console.WriteLine("Ticket was reopened.");
             }
         }
 
@@ -176,7 +176,7 @@ namespace TicketManagerIO
             try
             {
                 manager.LoadTickets(path);
-                Console.WriteLine("Tickets loaded successfully.");
+                Console.WriteLine("Tickets loaded successfully!");
             }
             // One catch will be if the file does not exist
             catch (FileNotFoundException)
